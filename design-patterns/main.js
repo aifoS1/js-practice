@@ -7,6 +7,7 @@ var Cat = function(options){
 	this.clicks = 0;
 
 	this.catClick(this.id);
+	this.catName(this.id, this.name);
 }
 
 Cat.prototype.catClick = function(cat) {
@@ -16,7 +17,10 @@ Cat.prototype.catClick = function(cat) {
 	}.bind(this))	  
 },
 Cat.prototype.countTotal = function(id, clicks){
-	 $('#' + id + ' .count').html(clicks);
+	$('#' + id + ' .count').html(clicks);
+},
+Cat.prototype.catName = function(id, name){
+	$('#' + id + ' .name').html(name);
 }
 
 
@@ -24,8 +28,8 @@ Cat.prototype.countTotal = function(id, clicks){
 
 $(document).ready(function(){
 
-  var cat1 = new Cat({id: "cat1"})
-  var cat2 = new Cat({id: "cat2"})
+  var cat1 = new Cat({id: "cat1", name: "Frank"})
+  var cat2 = new Cat({id: "cat2", name: "Sally"})
 
 });
 
