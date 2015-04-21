@@ -1,18 +1,27 @@
 body {
-	width: 600px;
+	width: 960px;
+	margin: 0 auto;
 }
 
-img {
-	height: 150px;
-	width: 150px;
+ul {
+	display: inline-block;
 }
 
 li {
 	list-style: none;
+	
 }
-#thumbs {
-	float: left;
+
+.thumbs {
+	height: 150px;
+	width: 150px;
 }
-.show{ 
-	float: right;
+.show {
+	margin-left: 30%;
+	margin-right: 30%;
 }
+.showCat {
+	height: 300px;
+	
+}
+

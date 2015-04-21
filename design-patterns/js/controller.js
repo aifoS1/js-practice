@@ -13,17 +13,17 @@ $scope.cats = [
  },
   {
    name: "Nathan",
-   image: "img/cat1.jng",
+   image: "img/cat1.jpg",
    clicks: 0,
  },
   {
-   name: "Sally",
-   image: "img/cat.png",
+   name: "Tilly",
+   image: "img/twocats.jpg",
    clicks: 0,
  },
   {
-   name: "Sally",
-   image: "img/cat.png",
+   name: "Matlock",
+   image: "img/cat-matlock-derbyshire.jpg",
    clicks: 0,
  }
 ],
