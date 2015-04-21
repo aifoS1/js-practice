@@ -1,4 +1,9 @@
 
+
+
+
+
+
 var Cat = function(options){
 	this.options = options || {};
 	this.name = options.name;
