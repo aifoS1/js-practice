@@ -23,7 +23,7 @@ function initialize(){
 
 
 var origin = new google.maps.LatLng(37.7831,-122.4039),
-    destination = "New York, NY",
+    destination = "los angeles, ca",
     service = new google.maps.DistanceMatrixService();
 
 service.getDistanceMatrix(
@@ -38,7 +38,7 @@ service.getDistanceMatrix(
 );
 
 function callback(response, status) {
-	console.log(response)
+	console.log(response.rows[0].elements[0].duration.text)
     var orig = document.getElementById("orig"),
         dest = document.getElementById("dest"),
         dist = document.getElementById("dist");
@@ -46,15 +46,40 @@ function callback(response, status) {
     if(status=="OK") {
         dest.value = response.destinationAddresses[0];
         orig.value = response.originAddresses[0];
-        dist.value = response.rows[0].elements[0].duration.text;
+       var duration = dist.value = response.rows[0].elements[0].duration.text;
 
     } else {
         alert("Error: " + status);
     }
+
+    freeBirds(duration)
 }
 
 function freeBirds(duration){
+    console.log(duration)
+    var total = duration.split(" ");
 
+    switch (total.length) {
+    	case 4:
+    	  var unit = total[1];
+    	  var days = total[0];
+    	  var mins;
+    	  var hours;
+        minOrDay(total[3]) ? mins = total[3] :  hours = total[3]
+    	  
+    	  console.log(mins, hours)
+    	  break;
+
+      case 2:
+
+   
+
+    }
+
+}
+
+function minOrDay(val){
+	return val == "mins" ? true : false;
 }
 
 
