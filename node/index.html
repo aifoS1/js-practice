@@ -3,17 +3,32 @@
 	<title>Map</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<!-- 	// <script src="https://maps.googleapis.com/maps/api/js?sensor=false@libraries=places"></script> -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpmlhfBfJgF0YKgqNuev5qKOjM6F1AfBE"
+  type="text/javascript"></script>
 	
 </head>
 <body>
 
-   Origin: <input id="orig" type="text" style="width:35em"><br><br>
+	<div id="travel-choices">
+		<label>Origin</label>
+		 <input id="orig" type="text" style="width:35em"><br><br> 
+		 <label>Destination</label>
+		 <input id="dest" type="text" style="width:35em"><br><br>
+		<input type="submit">
+
+
+
+	</div>
+
+ <!--   Origin: <input id="orig" type="text" style="width:35em"><br><br>
     Destination: <input id="dest" type="text" style="width:35em"><br><br>
-    Distance: <input id="dist" type="text" style="width:35em">
+    Distance: <input id="dist" type="text" style="width:35em"> -->
       <script type="text/javascript" src="app.js"></script>
 
 
      <p>FreeBirds Away: <span></span></p>
+   <div id="directions-panel"></div>
+   <div id="map-canvas"></div>
 </body>
 </html>

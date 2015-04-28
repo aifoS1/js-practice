@@ -17,71 +17,96 @@
 var apiKey = 'AIzaSyCcslhuxtpvtnuybGc_VicaRBS1U0I41FU';
 var baseURL = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=';
 
-var map;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 function initialize(){
 
+  directionsDisplay = new google.maps.DirectionsRenderer();
 
-var origin = new google.maps.LatLng(37.7831,-122.4039),
-    destination = "los angeles, ca",
-    service = new google.maps.DistanceMatrixService();
+  var mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(40.7033127,-73.979681)
+    };
 
-service.getDistanceMatrix(
-    {
-        origins: [origin],
-        destinations: [destination],
-        travelMode: google.maps.TravelMode.DRIVING,
-        avoidHighways: false,
-        avoidTolls: false
-    }, 
-    callback
-);
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
 
-function callback(response, status) {
-	console.log(response.rows[0].elements[0].duration.text)
-    var orig = document.getElementById("orig"),
-        dest = document.getElementById("dest"),
-        dist = document.getElementById("dist");
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('directions-panel'));
+  }
 
-    if(status=="OK") {
-        dest.value = response.destinationAddresses[0];
-        orig.value = response.originAddresses[0];
-       var duration = dist.value = response.rows[0].elements[0].duration.text;
 
-    } else {
-        alert("Error: " + status);
-    }
+// var origin = "New York, NY",
+// // var origin = new google.maps.LatLng(37.7831,-122.4039),
+//     destination = "los angeles, ca",
+//     service = new google.maps.DistanceMatrixService();
 
-    freeBirds(duration)
-}
+// service.getDistanceMatrix(
+//     {
+//         origins: [origin],
+//         destinations: [destination],
+//         travelMode: google.maps.TravelMode.DRIVING,
+//         avoidHighways: false,
+//         avoidTolls: false
+//     }, 
+//     callback
+// );
 
-function freeBirds(duration){
-    console.log(duration)
-    var total = duration.split(" ");
+// function callback(response, status) {
+// 	console.log(response.rows[0].elements[0].duration.text)
+//     var orig = document.getElementById("orig"),
+//         dest = document.getElementById("dest"),
+//         dist = document.getElementById("dist");
 
-    switch (total.length) {
-    	case 4:
-    	  var unit = total[1];
-    	  var days = total[0];
-    	  var mins;
-    	  var hours;
-        minOrDay(total[3]) ? mins = total[3] :  hours = total[3]
+//     if(status=="OK") {
+//         dest.value = response.destinationAddresses[0];
+//         orig.value = response.originAddresses[0];
+//        var duration = dist.value = response.rows[0].elements[0].duration.text;
+
+//     } else {
+//         alert("Error: " + status);
+//     }
+
+//     freeBirds(duration)
+// }
+
+// function freeBirds(duration){
+//     console.log(duration)
+//     var total = duration.split(" ");
+
+//     switch (total.length) {
+//     	case 4:
+//     	  var unit = total[1];
+//     	  var days = total[0];
+//     	  var mins;
+//     	  var hours;
+//         minOrDay(total[3]) ? mins = total[3] :  hours = total[3]
     	  
-    	  console.log(mins, hours)
-    	  break;
-
-      case 2:
+//     	  console.log(mins, hours)
+//     	  break;
+// //value is in second value / 60 /60 = hours
+//       case 2:
 
    
 
-    }
+//     }
 
+// }
+
+// function minOrDay(val){
+// 	return val == "mins" ? true : false;
+// }
+
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
+      '&signed_in=true&callback=initialize';
+  document.body.appendChild(script);
 }
 
-function minOrDay(val){
-	return val == "mins" ? true : false;
-}
-
+window.onload = loadScript;
 
 
 
@@ -152,7 +177,7 @@ function minOrDay(val){
 //     // outputDiv.innerHTML = origins + ' to ' + destinations + ': ' + results.distance.text + ' in ' + results.duration.text + '<br>';
 //     // $.post('/patients/'+$('body').data("current-patient")+'/eta', {eta: results.duration.text} );
 //   }
- }
+ // }
 
 
 
