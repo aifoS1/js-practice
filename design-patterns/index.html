@@ -20,8 +20,9 @@
 
 <div class="show">
 	<h3>{{ mainImg.name }}</h3>
-  <img class="showCat" ng-click="clickCat()" ng-src="{{ mainImg.image }}">
-  <p>Total Clicks: {{ mainImg.clicks }}</p>
+  <img class="hero" ng-click="clickCat()" ng-src="{{ mainImg.image }}">
+  <p>Total Clicks: {{ mainImg.clicks }} <span ng-click="unClickCat()">Unclick Cat!</span></p>
+
 </div>
 <!-- <div id="cat1">
   <h3 class="name"></h3>

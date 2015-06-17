@@ -11,6 +11,9 @@ li {
 	list-style: none;
 	
 }
+span {
+	margin-left: 1.5em;
+}
 
 .thumbs {
 	height: 150px;
@@ -20,7 +23,7 @@ li {
 	margin-left: 30%;
 	margin-right: 30%;
 }
-.showCat {
+.hero {
 	height: 300px;
 	
 }

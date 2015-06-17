@@ -1,9 +1,4 @@
 
-
-
-
-
-
 var Cat = function(options){
 	this.options = options || {};
 	this.name = options.name;
@@ -32,7 +27,6 @@ Cat.prototype.catName = function(id, name){
 
 
 $(document).ready(function(){
-
   var cat1 = new Cat({id: "cat1", name: "Frank"})
   var cat2 = new Cat({id: "cat2", name: "Sally"})
 

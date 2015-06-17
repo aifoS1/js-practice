@@ -33,5 +33,8 @@ $scope.showCat = function(index){
 },
 $scope.clickCat = function(){
 	$scope.mainImg.clicks += 1;
+},
+$scope.unClickCat = function(){
+  $scope.mainImg.clicks -= 1;
 }
 }]);
